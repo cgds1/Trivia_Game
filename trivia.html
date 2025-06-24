@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trivia Challenge</title>
+  <link rel="stylesheet" href="styles/trivia.css">
+</head>
+<body>
+  <header>
+    <h1>Trivia Challenge</h1>
+  </header>
+
+  <main class="container">
+    <!-- CONFIG -->
+    <section id="config" class="card">
+      <h2>📋 Configuración</h2>
+      <form id="config-form">
+        <div class="form-grid">
+          <label>
+            <span>Nombre del jugador</span>
+            <input type="text" id="player-name" minlength="2" maxlength="20" required>
+          </label>
+          <label>
+            <span>Nº de preguntas</span>
+            <input type="number" id="question-count" min="5" max="20" value="5" required>
+          </label>
+          <label>
+            <span>Dificultad</span>
+            <select id="difficulty">
+              <option value="easy">Fácil</option>
+              <option value="medium">Medio</option>
+              <option value="hard">Difícil</option>
+            </select>
+          </label>
+          <label>
+            <span>Categoría</span>
+            <select id="category">
+              <option value="">Mixtas</option>
+            </select>
+          </label>
+        </div>
+        <button type="submit" class="btn-primary">Iniciar juego</button>
+      </form>
+    </section>
+
+    <!-- GAME -->
+    <section id="game" class="card hidden">
+      <div id="loader" class="loader hidden"></div>
+      <div id="question-container">
+        <div class="status-bar">
+          <div>Pregunta <span id="current">1</span>/<span id="total">5</span></div>
+          <div id="timer">20</div>
+        </div>
+        <h2 id="question-text">Aquí va la pregunta…</h2>
+        <div id="answers" class="answers-grid"></div>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section id="results" class="card hidden">
+      <h2>🏆 Resultados</h2>
+      <p><strong>Jugador:</strong> <span id="player-display"></span></p>
+      <p><strong>Puntuación:</strong> <span id="score-display"></span></p>
+      <p><strong>Correctas:</strong> <span id="correct-display"></span>/<span id="total-display"></span></p>
+      <p><strong>% Éxito:</strong> <span id="percent-display"></span>%</p>
+      <p><strong>Tiempo medio:</strong> <span id="avgtime-display"></span> s</p>
+      <div class="btn-group">
+        <button id="restart-same" class="btn-secondary">Repetir</button>
+        <button id="restart-new"  class="btn-primary">Nueva configuración</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/trivia.js" type="module"></script>
+</body>
+</html>
