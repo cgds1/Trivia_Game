@@ -36,7 +36,9 @@ Micro-animaciones y feedback en tiempo real garantizan una experiencia dinámica
 
 ```
 trivia-game/
-├── index.html        
+├── index.html
+├── icons/
+│ └── trival.png        
 ├── css/
 │   └── styles.css    
 └── js/
