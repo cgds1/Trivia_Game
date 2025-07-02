@@ -17,28 +17,28 @@ const state = {
 // --- Elementos del DOM ---
 const elements = {
   configSection: document.getElementById('config'),
-  gameSection:   document.getElementById('game'),
-  resultsSection:document.getElementById('results'),
-  configForm:    document.getElementById('config-form'),
-  playerInput:   document.getElementById('player-name'),
-  countInput:    document.getElementById('question-count'),
-  diffSelect:    document.getElementById('difficulty'),
-  catSelect:     document.getElementById('category'),
-  loader:        document.getElementById('loader'),
+  gameSection: document.getElementById('game'),
+  resultsSection: document.getElementById('results'),
+  configForm: document.getElementById('config-form'),
+  playerInput: document.getElementById('player-name'),
+  countInput: document.getElementById('question-count'),
+  diffSelect: document.getElementById('difficulty'),
+  catSelect: document.getElementById('category'),
+  loader: document.getElementById('loader'),
   questionContainer: document.getElementById('question-container'),
-  questionText:  document.getElementById('question-text'),
-  answersGrid:   document.getElementById('answers'),
-  progressEl:    document.getElementById('current'),
-  totalEl:       document.getElementById('total'),
-  timerEl:       document.getElementById('timer'),
+  questionText: document.getElementById('question-text'),
+  answersGrid: document.getElementById('answers'),
+  progressEl: document.getElementById('current'),
+  totalEl: document.getElementById('total'),
+  timerEl: document.getElementById('timer'),
   playerDisplay: document.getElementById('player-display'),
-  scoreDisplay:  document.getElementById('score-display'),
-  correctDisplay:document.getElementById('correct-display'),
-  totalDisplay:  document.getElementById('total-display'),
-  percentDisplay:document.getElementById('percent-display'),
-  avgtimeDisplay:document.getElementById('avgtime-display'),
-  restartSame:   document.getElementById('restart-same'),
-  restartNew:    document.getElementById('restart-new')
+  scoreDisplay: document.getElementById('score-display'),
+  correctDisplay: document.getElementById('correct-display'),
+  totalDisplay: document.getElementById('total-display'),
+  percentDisplay: document.getElementById('percent-display'),
+  avgtimeDisplay: document.getElementById('avgtime-display'),
+  restartSame: document.getElementById('restart-same'),
+  restartNew: document.getElementById('restart-new')
 };
 
 let timerId, startTime;
@@ -69,10 +69,10 @@ async function fetchCategories() {
 function onStart(event) {
   event.preventDefault();
   // Leer configuración
-  state.player     = elements.playerInput.value.trim();
-  state.count      = +elements.countInput.value;
+  state.player = elements.playerInput.value.trim();
+  state.count = +elements.countInput.value;
   state.difficulty = elements.diffSelect.value;
-  state.category   = elements.catSelect.value;
+  state.category = elements.catSelect.value;
   // Validar mínimo 2 caracteres en nombre
   if (state.player.length < 2) {
     alert('Pon un nombre de jugador con al menos 2 caracteres.');
@@ -145,6 +145,7 @@ function startTimer() {
     }
   }, 1000);
 }
+
 function resetTimer() {
   clearInterval(timerId);
   elements.timerEl.classList.remove('warning');
@@ -188,10 +189,10 @@ function recordTime(sec) {
 function showResults() {
   toggleSection(elements.gameSection, elements.resultsSection);
 
-  elements.playerDisplay.textContent  = state.player;
-  elements.scoreDisplay.textContent   = state.score;
+  elements.playerDisplay.textContent = state.player;
+  elements.scoreDisplay.textContent = state.score;
   elements.correctDisplay.textContent = state.correct;
-  elements.totalDisplay.textContent   = state.count;
+  elements.totalDisplay.textContent = state.count;
   elements.percentDisplay.textContent = Math.round(state.correct / state.count * 100);
   const avg = (state.times.reduce((a, b) => a + b, 0) / state.times.length).toFixed(1);
   elements.avgtimeDisplay.textContent = avg;
